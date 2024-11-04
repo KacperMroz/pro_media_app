@@ -46,7 +46,7 @@ class StaggeredGridView extends StatelessWidget {
                 StaggeredGridTile.count(
                   crossAxisCellCount: 1,
                   mainAxisCellCount: 1,
-                  child: ImageGridCard(),
+                  child: ImageGridCard(isFavourite: true,),
                 ),
                 StaggeredGridTile.count(
                   crossAxisCellCount: 1,
@@ -110,9 +110,10 @@ class CustomGridCard extends StatelessWidget {
 }
 
 class ImageGridCard extends StatelessWidget {
-  const ImageGridCard({super.key});
+  const ImageGridCard({super.key, this.isFavourite = false});
 
   final String title = 'Dłuższe godziny zwiedzania muzeum';
+  final bool isFavourite;
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +139,11 @@ class ImageGridCard extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Icon(
+                child: isFavourite ? Icon(
+                  Icons.favorite,
+                  color: Colors.greenAccent,
+                ) : const
+                Icon(
                   Icons.favorite_border,
                   color: Colors.white,
                 ),
