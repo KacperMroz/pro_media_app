@@ -62,6 +62,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return AppBar(
+          scrolledUnderElevation: 0,
           backgroundColor: Colors.transparent,
           title: state.isVideoPlaying ? null : Text(title),
           centerTitle: true,
