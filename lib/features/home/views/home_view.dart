@@ -18,11 +18,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
         VideoAnimatedContainer(isVideoPlaying: isVideoPlaying, controller: controller),
-        Expanded(
+        AnimatedPadding(
+          padding: EdgeInsets.only(top: isVideoPlaying ? 265 : 140),
+          duration: const Duration(seconds: 1),
+          curve: Curves.linear,
           child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 3),
             decoration: BoxDecoration(
               color: Colors.grey[300],
               borderRadius:
